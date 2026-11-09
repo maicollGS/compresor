@@ -1,0 +1,20 @@
+MOJ COMPRESOR v1.0 - MOJ Soluciones
+Compresion SIN PERDIDA al maximo posible, en formato .7z estandar.
+
+USO RAPIDO
+  1) pip install -r requirements.txt
+  2) python moj_compresor.py
+  Para un .exe portable: doble clic en construir_exe.bat (queda en dist\)
+
+QUE HACE
+  - Modo "Maximo": prueba LZMA2 Ultra, PPMd, BZip2 y LZMA2+x86 y guarda el mas pequeno.
+  - Modo "Ultra": solo LZMA2 (mas rapido, casi siempre muy cerca del maximo).
+  - Archivo solido (todos los archivos juntos) => mejor compresion en carpetas con muchos archivos parecidos.
+  - Verificacion automatica: descomprime y compara SHA-256 de cada archivo. Si algo no coincide, no guarda nada.
+  - Contrasena opcional (AES-256, tambien cifra los nombres de archivo).
+  - El .7z resultante se abre con 7-Zip, WinRAR, PeaZip, etc.
+
+IMPORTANTE
+  La compresion sin perdida tiene un limite fisico. Archivos que YA estan comprimidos
+  (JPG, PNG, MP4, MP3, ZIP, RAR, PDF con imagenes, DOCX/XLSX) casi no se reducen (0-5%).
+  Donde rinde mucho: TXT, CSV, JSON (RIPS), SQL, logs, XML, bases de datos, codigo, BMP, WAV.
